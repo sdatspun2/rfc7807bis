@@ -3,9 +3,9 @@
 
 
 Network Working Group                                      M. Nottingham
-Internet-Draft                                           28 January 2021
-Obsoletes: 7807 (if approved)                                           
-Intended status: Standards Track                                        
+Internet-Draft                                                          
+Obsoletes: 7807 (if approved)                                   S. Dalal
+Intended status: Standards Track                         28 January 2021
 Expires: 1 August 2021
 
 
@@ -76,7 +76,7 @@ Table of Contents
    Appendix A.  HTTP Problems and XML
    Appendix B.  Using Problem Details with Other Formats
    Acknowledgements
-   Author's Address
+   Authors' Addresses
 
 1.  Introduction
 
@@ -690,7 +690,7 @@ Acknowledgements
    Mike Amundsen, Roy Fielding, Eran Hammer, Sam Johnston, Mike McCall,
    Julian Reschke, and James Snell for review of this specification.
 
-Author's Address
+Authors' Addresses
 
    Mark Nottingham
    Prahran VIC
@@ -698,3 +698,9 @@ Author's Address
 
    Email: mnot@mnot.net
    URI:   https://www.mnot.net/
+
+
+   Sanjay Dalal
+
+   Email: sanjay.dalal@cal.berkeley.edu
+   URI:   https://github.com/sdatspun2
