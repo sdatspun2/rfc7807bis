@@ -1,0 +1,163 @@
+{
+  "magic": "E!vIA5L86J2I",
+  "timestamp": "2021-01-31T00:59:21.238541+00:00",
+  "repo": "ietf-wg-httpapi/rfc7807bis",
+  "labels": [
+    {
+      "name": "editorial",
+      "description": "",
+      "color": "0E8A16"
+    },
+    {
+      "name": "duplicate",
+      "description": "This issue or pull request already exists",
+      "color": "cfd3d7"
+    }
+  ],
+  "issues": [
+    {
+      "number": 1,
+      "id": "MDU6SXNzdWU3OTY0NTYzNjU=",
+      "title": "Update references",
+      "url": "https://github.com/ietf-wg-httpapi/rfc7807bis/issues/1",
+      "state": "OPEN",
+      "author": "mnot",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [
+        "editorial"
+      ],
+      "body": "... to account for things that have been published since.",
+      "createdAt": "2021-01-28T23:32:38Z",
+      "updatedAt": "2021-01-28T23:32:38Z",
+      "closedAt": null,
+      "comments": []
+    },
+    {
+      "number": 2,
+      "id": "MDU6SXNzdWU3OTY0NTY2NjQ=",
+      "title": "IANA considerations",
+      "url": "https://github.com/ietf-wg-httpapi/rfc7807bis/issues/2",
+      "state": "OPEN",
+      "author": "mnot",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [
+        "editorial"
+      ],
+      "body": "... can be updated to just tell IANA to point the registrations at this document.",
+      "createdAt": "2021-01-28T23:33:20Z",
+      "updatedAt": "2021-01-28T23:33:20Z",
+      "closedAt": null,
+      "comments": []
+    },
+    {
+      "number": 3,
+      "id": "MDU6SXNzdWU3OTY0NTY5MjE=",
+      "title": "Validate HTTP message examples",
+      "url": "https://github.com/ietf-wg-httpapi/rfc7807bis/issues/3",
+      "state": "OPEN",
+      "author": "mnot",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [
+        "editorial"
+      ],
+      "body": "",
+      "createdAt": "2021-01-28T23:33:59Z",
+      "updatedAt": "2021-01-28T23:33:59Z",
+      "closedAt": null,
+      "comments": []
+    },
+    {
+      "number": 4,
+      "id": "MDU6SXNzdWU3OTY0NTcxNTg=",
+      "title": "Deprecate XML?",
+      "url": "https://github.com/ietf-wg-httpapi/rfc7807bis/issues/4",
+      "state": "OPEN",
+      "author": "mnot",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Just asking.",
+      "createdAt": "2021-01-28T23:34:32Z",
+      "updatedAt": "2021-01-29T17:26:44Z",
+      "closedAt": null,
+      "comments": [
+        {
+          "author": "sazzer",
+          "authorAssociation": "NONE",
+          "body": "Is there any real harm in keeping XML in? And in the cases where the happy path of an API is using XML - they do still exist :) - then having the unhappy paths also using XML is hugely convenient, rather than needing to parse success vs failure in different ways.",
+          "createdAt": "2021-01-29T17:26:43Z",
+          "updatedAt": "2021-01-29T17:26:43Z"
+        }
+      ]
+    },
+    {
+      "number": 5,
+      "id": "MDU6SXNzdWU3OTY0NTc2NDI=",
+      "title": "Incorporate errata",
+      "url": "https://github.com/ietf-wg-httpapi/rfc7807bis/issues/5",
+      "state": "OPEN",
+      "author": "mnot",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [
+        "editorial"
+      ],
+      "body": "Either by making editorial changes or filing issues.\r\n\r\n[errata](https://www.rfc-editor.org/errata_search.php?rfc=7807)",
+      "createdAt": "2021-01-28T23:35:47Z",
+      "updatedAt": "2021-01-28T23:35:47Z",
+      "closedAt": null,
+      "comments": []
+    },
+    {
+      "number": 6,
+      "id": "MDU6SXNzdWU3OTY0NTk4NzU=",
+      "title": "Multiple problems",
+      "url": "https://github.com/ietf-wg-httpapi/rfc7807bis/issues/6",
+      "state": "OPEN",
+      "author": "mnot",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Sometimes an API will want to report more than one problem in a response. 7807 explains that this can be done in extensions, but does not natively allow multiple problems to be conveyed, because there was concern that doing so would make it too easy to contradict the semantics of the status code.\r\n\r\nSince publication, developers have still wanted a generic solution to this. A few possible directions we could go on:\r\n\r\n0. Do nothing\r\n1. Improve the documentation regarding how to handle multiple problems in extensions\r\n2. Introduce a way to natively convey multiple problems, as long as they share the same status code semantics\r\n3. Something else?",
+      "createdAt": "2021-01-28T23:41:07Z",
+      "updatedAt": "2021-01-30T10:22:10Z",
+      "closedAt": null,
+      "comments": [
+        {
+          "author": "sazzer",
+          "authorAssociation": "NONE",
+          "body": "I'm somewhat curious how often multiple *different* problems really happen, as opposed to multiple different facets of the same problem.\r\n\r\nBy \"multiple different facets of the same problem\", I'm meaning things like request validation failures. A request might be invalid because of multiple different fields in the incoming JSON(/whatever content type is being used). But the overall problem is still \"Validation Failed\". It's just that it failed for several reasons.\r\n\r\nThe real multiple problems would, in my mind at least, be something like:\r\n* The incoming request was invalid (So a \"Validation Failed\" problem with a status of 400/422)\r\n* And you don't have permission to do this (So a \"Permission Denied\" problem with a status of 403)\r\n* And the resource doesn't exist (So a \"Not Found\" problem with a status of 404)\r\n\r\nThe \"multiple facets\" case is relatively simple to support. Indeed, I'm sure the wider community have a myriad of different ways to do it already, but obviously a standard way to achieve it would be better.\r\n\r\nThe \"multiple problems\" case is much harder, simply because of the different status codes that can come up. But my (potentially naive) suspicion is that it's also less useful.",
+          "createdAt": "2021-01-29T17:25:13Z",
+          "updatedAt": "2021-01-29T17:25:13Z"
+        },
+        {
+          "author": "serialseb",
+          "authorAssociation": "NONE",
+          "body": "I hope it's useful, here is the scenario of what we currently do (it's a work in progress).\r\n\r\nWe currently retrieve various problem documents from various api calls that are done in a scatter/gather scenario, unbeknownst to the client.\r\nWe aggregate those potential multiple problems:\r\n - if they're all the same type / status, we reuse this and agrgregate the details.\r\n - if they're not of the same type / status, we extract a response status (see below) and set the type to an \"aggregate\", and add a `inner_problems` array of problem documents to provide details of each of the errors encountered during this call\r\n\r\nThe status code in the case of an aggregate is set according to those rules:\r\n - if all status codes are the same, use this status code\r\n - if status codes are not the same but in the same 100th, set it to 400 or 500\r\n - if it's spread across, use a 500\r\n\r\nIt's not ideal but it allows us to communicate to the client why their request failed, with information about each dataset that may have rejected a request.\r\n\r\n",
+          "createdAt": "2021-01-30T10:22:09Z",
+          "updatedAt": "2021-01-30T10:22:09Z"
+        }
+      ]
+    },
+    {
+      "number": 7,
+      "id": "MDU6SXNzdWU3OTY3MDkzNjQ=",
+      "title": "Repository of common Problem types",
+      "url": "https://github.com/ietf-wg-httpapi/rfc7807bis/issues/7",
+      "state": "OPEN",
+      "author": "sazzer",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "(I'm not sure if this is the correct place to propose this, so apologies if not!)\r\n\r\nAs RFC-7807 gains wider-spread adoption, it is becoming the case that more and more APIs are returning effectively the same problems with different values for the fields. This makes it difficult to work across different APIs, because you need to understand that different problems from those APIs actually mean the same thing.\r\n\r\nCommon examples that you might expect to see include:\r\n* Resource not found\r\n* Authentication failure\r\n* Optimistic lock failure (e.g. the `If-Match` header on a `PUT` request has the wrong value)\r\n* Request validation failure\r\n\r\nIt seems that it would be useful to have a repository of these common problem types that can then be reused across APIs, so that ideally these common situations can be handled in the exact same way on the client.\r\n\r\nEffectively the same idea as the standard list of [Link Relations](https://www.iana.org/assignments/link-relations/link-relations.xhtml), whereby all clients that see a link relation of, for example, `self` or `item` know what they mean regardless of the API that produced them.",
+      "createdAt": "2021-01-29T09:08:21Z",
+      "updatedAt": "2021-01-29T09:08:21Z",
+      "closedAt": null,
+      "comments": []
+    }
+  ],
+  "pulls": []
+}
